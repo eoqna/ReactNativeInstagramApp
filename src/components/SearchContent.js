@@ -33,7 +33,7 @@ const searchData = [
   }
 ];
 
-const SearchContent = () => {
+const SearchContent = ({ getData }) => {
   return (
     <View>
       {searchData.map(( data, index ) => {
@@ -54,6 +54,8 @@ const SearchContent = () => {
                   return (
                     <TouchableOpacity
                       key={imgIndex}
+                      onPressIn={() => getData(imageData)}
+                      onPressOut={() => getData(null)}
                       style={{
                         paddingBottom: 2,
                         width: '33%',
@@ -91,6 +93,8 @@ const SearchContent = () => {
                     return (
                       <TouchableOpacity
                         key={imgIndex}
+                        onPressIn={() => getData(imageData)}
+                        onPressOut={() => getData(null)}
                         style={{
                           paddingBottom: 2,
                           width: '49.5%',
@@ -108,6 +112,8 @@ const SearchContent = () => {
                   })}
                 </View>
                 <TouchableOpacity
+                  onPressIn={() => getData(data.images[4])}
+                  onPressOut={() => getData(null)}
                   style={{
                     marginLeft: 2,
                     width: '33%',
@@ -132,6 +138,8 @@ const SearchContent = () => {
                 }}
               >
                 <TouchableOpacity
+                  onPressIn={() => getData(data.images[2])}
+                  onPressOut={() => getData(null)}
                   style={{
                     paddingRight: 2,
                     width: '66.5%',
@@ -156,6 +164,8 @@ const SearchContent = () => {
                   {data.images.slice(0, 2).map((imageData, imgIndex) => {
                     return (
                       <TouchableOpacity
+                        onPressIn={() => getData(imageData)}
+                        onPressOut={() => getData(null)}
                         key={imgIndex}
                         style={{
                           paddingBottom: 2,
