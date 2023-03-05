@@ -4,7 +4,6 @@ import React from 'react';
 const EditProfile = () => {
   return (
     <View>
-      <Text>EditProfile</Text>
     </View>
   );
 }
