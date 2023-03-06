@@ -31,13 +31,13 @@ const postInfo = [
     likes: 504,
     isLiked: false,
   },
-  {
-    postTitle: 'Haein',
-    postPersonImage: require('../../assets/images/profile6.jpeg'),
-    postImage: require('../../assets/images/profile6.jpeg'),
-    likes: `2,823,503`,
-    isLiked: true,
-  },
+  // {
+  //   postTitle: 'Haein',
+  //   postPersonImage: require('../../assets/images/profile6.jpeg'),
+  //   postImage: require('../../assets/images/profile6.jpeg'),
+  //   likes: `2,823,503`,
+  //   isLiked: true,
+  // },
 ]
 
 const Post = () => {

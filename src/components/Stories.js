@@ -48,6 +48,7 @@ const Stories = () => {
   return (
     <ScrollView
       horizontal={true}
+      showsHorizontalScrollIndicator={false}
       style={{
         paddingVertical: 20,
       }}
