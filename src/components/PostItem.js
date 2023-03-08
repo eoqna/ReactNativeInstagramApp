@@ -1,4 +1,5 @@
 import { View, Image, Text, TouchableOpacity, TextInput } from 'react-native'
+import PushNotification from "react-native-push-notification";
 import React, { useState } from 'react'
 import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -6,6 +7,31 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 
 const PostItem = ({ data }) => {
   const [ like, setLike ] = useState(data.isLiked);
+
+  const handelNotification = (title) => {
+    PushNotification.getChannels(function(channel_ids) {
+      console.log(channel_ids);
+    });
+
+    PushNotification.cancelAllLocalNotifications();
+
+    // PushNotification.localNotification({
+    //   channelId: 'insta-channel',
+    //   title: `${title}를 클릭했습니다.`,
+    //   message: `메시지 입니다.`,
+    //   color: 'black',
+    //   bigText: 'My Big Text',
+    // });
+
+    PushNotification.localNotificationSchedule({
+      channelId: 'insta-channel',
+      title: `${title}를 클릭했습니다.`,
+      message: `메시지 입니다.`,
+      color: 'black',
+      date: new Date(Date.now() + 5 * 1000),
+      allowWhileIdle: true,
+    });
+  }
 
   return (
     <View
@@ -29,14 +55,19 @@ const PostItem = ({ data }) => {
             alignItems: 'center',
           }}
         >
-          <Image 
-            source={data.postPersonImage}
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 100,
-            }}
-          />
+          <TouchableOpacity
+            onPress={() => handelNotification(data.postTitle)}
+          >
+            <Image 
+              source={data.postPersonImage}
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 100,
+              }}
+            />
+          </TouchableOpacity>
+          
           <View
             style={{
               paddingLeft: 5,

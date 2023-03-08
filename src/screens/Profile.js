@@ -17,6 +17,13 @@ const Profile = () => {
           <View
             style={{
               width: 60,
+              height: 60,
+              borderRadius: 100,
+              borderWidth: 1,
+              opacity: 0.7,
+              marginHorizontal: 5,
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
             <Entypo 
@@ -28,8 +35,16 @@ const Profile = () => {
             />
           </View>
         ) : (
-          <View>
-          </View>
+          <View 
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 100,
+              backgroundColor: 'black',
+              opacity: 0.1,
+              marginHorizontal: 5,
+            }}
+          />
         )}
       </View>
 
@@ -67,7 +82,14 @@ const Profile = () => {
           profileImage={require('../../assets/images/userProfile.jpeg')}
         />
 
-        <ScrollView>
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          style={{
+            paddingVertical: 5,
+            paddingHorizontal: 10,
+          }}
+        >
           {circles}
         </ScrollView>
 
